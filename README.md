@@ -11,13 +11,15 @@ Module is intended to use at shared webhosting servers, where .htaccess files wi
 ### Compilation
 
 You must have apache2 development package, apxs2 and gcc/binutils/etc. installed, e.g. (on Ubuntu/Debian)
+
 `apt install apache2-dev build-essential`
 
 Then, compile module and copy it into apache2 module dir (e.g. `/usr/lib/apache2/modules`)
 
-`apxs -c mod_php_fpm.c`
-
-`cp .libs/mod_php_fpm.so /where/is/your/apache/modules`
+```
+apxs -c mod_php_fpm.c 
+cp .libs/mod_php_fpm.so /where/is/your/apache/modules
+```
 
 ### Apache setup
 
