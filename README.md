@@ -25,3 +25,11 @@ Just add `LoadModule php_fpm_module /usr/lib/apache2/modules/mod_php_fpm.so` to 
 
 Remember - php_admin_value and php_admin_flag variables are to set up only in server configuration files, they cannot be set in .htaccess
 
+Example of test .htaccess file:
+
+```
+php_value error_reporting -1
+php_flag log_errors 0
+php_flag allow_url_fopen Off
+```
+
