@@ -99,24 +99,6 @@ static void *merge_env_dir_configs(apr_pool_t *p, void *basev, void *addv)
     return res;
 }
 
-static const char *add_env_module_vars_passed(cmd_parms *cmd, void *sconf_,
-                                              const char *arg)
-{
-    env_dir_config_rec *sconf = sconf_;
-    apr_table_t *vars = sconf->vars;
-    const char *env_var;
-
-    env_var = getenv(arg);
-    if (env_var != NULL) {
-        apr_table_setn(vars, arg, apr_pstrdup(cmd->pool, env_var));
-    }
-    else {
-        ap_log_error(APLOG_MARK, APLOG_WARNING, 0, cmd->server, APLOGNO(01506)
-                     "PassEnv variable %s was undefined", arg);
-    }
-
-    return NULL;
-}
 
 static const char *add_env_module_vars_set(cmd_parms *cmd, void *sconf_,
                                            const char *name, const char *value)
